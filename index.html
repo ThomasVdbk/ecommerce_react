@@ -14,10 +14,38 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
+        //Declaration de function, les composants doivent respecter la convention de nommage PascalCase
         function MyComponent() {
             return <div>Mon composant apparait !</div>
         }
+        // Affiche dans le DOM le component MyComponent
         ReactDOM.render(<MyComponent />, document.getElementById('root'))
+
+        function Banner() {
+            const title = "La maison jungle"
+            return (<h1>{title.toUpperCase()}</h1>)
+        }
+
+        function Cart() {
+            const monsteraPrice = 8
+            const ivyPrice = 10
+            const flowerPrice = 15
+            return (<div>
+                <h2>Panier</h2>
+                <ul>
+                    <li>Monstera : {monsteraPrice}€</li>
+                    <li>Lierre : {ivyPrice}€</li>
+                    <li>Fleurs : {flowerPrice}€</li>
+                </ul>
+                Total : {monsteraPrice + ivyPrice + flowerPrice}€
+            </div>)
+        }
+
+        // Wrapper les componants dans une div parent pour fonctionner
+        ReactDOM.render(<div><Banner /><Cart /></div>, document.getElementById('root'))
+
+        // OU Wrapper avec les Fragments (outil React), si on inspect la page, le parent apparait pas dans le DOM
+        ReactDOM.render(<React.Fragment><Banner /><Cart /></React.Fragment>, document.getElementById("root"))
     </script>
 </body>
 
