@@ -1,5 +1,5 @@
 import { plantList } from '../datas/plantList'
-import CareScale from './CareScale'
+import PlantItem from './PlantItem'
 import '../styles/ShoppingList.css'
 
 function ShoppingList() {
@@ -16,19 +16,19 @@ function ShoppingList() {
 					<li key={cat}>{cat}</li>
 				))}
 			</ul>
-			<ul>
-            {plantList.map((plant) => (
-                    <li key={ plant.id } className='lmj-plant-item'>
-						{plant.name}
-                        {plant.isBestSale ? <span>🔥</span> : null}
-						{/* Fonctionne aussi avec cette condition */}
-                        {/* {plant.isBestSale && <span>🔥</span>} */}
-						{plant.isSpecialOffer && <div className="lmj-sales">Soldes</div>}
-						
-                        <CareScale careType='water' scaleValue={plant.water} />
-						<CareScale careType='light' scaleValue={plant.light} />
-                    </li>
-            ))}
+			<ul className='lmj-plant-list'>
+				{plantList.map(({ id, cover, name, water, light, isBestSale, isSpecialOffer}) => (
+					<PlantItem
+						key={id}  
+						id={id}
+						cover={cover}
+						name={name}
+						water={water}
+						light={light}
+						isBestSale={isBestSale}
+						isSpecialOffer={isSpecialOffer}
+					/>
+				))}
 			</ul>
 		</div>
 	)
