@@ -1,20 +1,15 @@
 import '../styles/Banner.css'
-import logo from '../assets/logo.png'
-import Recommendation from './Recommendation'
 
 // Style avec className appelé par Banner.css.
 // L'attribut className permet de préciser une classe 
 // à un élément React pour lui indiquer du CSS.
-function Banner() {
-
-    return (<div className='lmj-banner'>
-                <div>
-                    <img src={logo} alt='La maison jungle' className='lmj-logo' />
-                    <h1>La maison jungle</h1><Recommendation/>
-                </div>
-            </div>
-    )
+function Banner({ children }) {
+	return <div className='lmj-banner'>{children}</div>
 }
+export default Banner
+
+
+
 // Autre possibilité de style avec inline style (non recommandé) 
 // function Banner() {
 //     return <div style={{
@@ -29,4 +24,3 @@ function Banner() {
 
 // Autres possibilité avec 
 // https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
-export default Banner
