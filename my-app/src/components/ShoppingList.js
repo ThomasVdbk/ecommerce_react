@@ -1,4 +1,5 @@
 import { plantList } from '../datas/plantList'
+import CareScale from './CareScale'
 import '../styles/ShoppingList.css'
 
 function ShoppingList() {
@@ -23,7 +24,9 @@ function ShoppingList() {
 						{/* Fonctionne aussi avec cette condition */}
                         {/* {plant.isBestSale && <span>🔥</span>} */}
 						{plant.isSpecialOffer && <div className="lmj-sales">Soldes</div>}
-                        
+						
+                        <CareScale careType='water' scaleValue={plant.water} />
+						<CareScale careType='light' scaleValue={plant.light} />
                     </li>
             ))}
 			</ul>
