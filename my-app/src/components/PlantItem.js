@@ -4,7 +4,7 @@ import '../styles/PlantItem.css'
 
 function PlantItem ({id, cover, name, water, light, isBestSale, isSpecialOffer }){
     return (
-		<li key={id} className='lmj-plant-item'>
+		<li key={id} className='lmj-plant-item' onClick={() => handleClick(name)}>
 			<img className='lmj-plant-item-cover' src={cover} alt={`${name} cover`} />
 			{name}
 			<div>
@@ -21,3 +21,9 @@ function PlantItem ({id, cover, name, water, light, isBestSale, isSpecialOffer }
 }
 
 export default PlantItem
+
+
+// Les événements sont en camelCase dans les balises
+function handleClick(plantName) {
+    alert(`Vous voulez acheter 1 ${plantName} ? Très bon choix 🌱✨`)
+}
