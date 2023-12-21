@@ -3,6 +3,7 @@ import logo from '../assets/logo.png'
 import Cart from './Cart'
 import ShoppingList from './ShoppingList'
 import Recommendation from './Recommendation'
+import QuestionForm from './QuestionForm'
 
 function App() {
 	return (
@@ -15,7 +16,10 @@ function App() {
 				<Recommendation/>
 				</div>
 			</Banner>
-			
+
+
+			<QuestionForm/>
+	
 			<Cart />
 			<ShoppingList />
 		</div>
@@ -23,3 +27,4 @@ function App() {
 }
 
 export default App
+
