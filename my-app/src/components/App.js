@@ -16,11 +16,9 @@ function App() {
 				<Recommendation/>
 				</div>
 			</Banner>
-		
-				<form onSubmit={QuestionForm}>
-    				<input type='text' name='my_input' defaultValue='Tapez votre texte' />
-    				<button type='submit'>Entrer</button>
-				</form>
+
+
+			<QuestionForm/>
 	
 			<Cart />
 			<ShoppingList />
@@ -29,3 +27,4 @@ function App() {
 }
 
 export default App
+
