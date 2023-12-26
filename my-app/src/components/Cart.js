@@ -6,20 +6,29 @@ function Cart() {
 	// useState pour augmenter la valeur du panier
     const [cart, updateCart] = useState(0)
 	// useState pour afficher ou cacher le panier
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(true)
 
     return isOpen ? (
         <div className='lmj-cart'>
-            <button onClick={() => setIsOpen(false)}>Fermer</button>
+            <button
+                className='lmj-cart-toggle-button'
+                onClick={() => setIsOpen(false)}
+            >
+                Fermer
+            </button>
             <h2>Panier</h2>
-            <div>Monstera : {monsteraPrice}€
-                <button onClick={() => updateCart(cart + 1)}>Ajouter</button>
-            </div>
             <h3>Total : {monsteraPrice * cart}€</h3>
-			<button onClick={() => updateCart(0)}>Vider le panier</button> 
+            <button onClick={() => updateCart(0)}>Vider le panier</button>
         </div>
     ) : (
-        <button onClick={() => setIsOpen(true)}>Ouvrir le Panier</button>
+        <div className='lmj-cart-closed'>
+            <button
+                className='lmj-cart-toggle-button'
+                onClick={() => setIsOpen(true)}
+            >
+                Ouvrir le Panier
+            </button>
+        </div>
     )
 }
 export default Cart
