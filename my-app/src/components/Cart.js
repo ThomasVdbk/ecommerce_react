@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import '../styles/Cart.css'
+import './ShoppingList'
 
-function Cart() {
+function Cart({ cart, updateCart }) {
     const monsteraPrice = 8
-	// useState pour augmenter la valeur du panier
-    const [cart, updateCart] = useState(0)
+	
 	// useState pour afficher ou cacher le panier
 	const [isOpen, setIsOpen] = useState(true)
 
