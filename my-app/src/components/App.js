@@ -6,23 +6,27 @@ import Recommendation from './Recommendation'
 import QuestionForm from './QuestionForm'
 import Footer from './Footer'
 
+import { useState } from 'react'
+
 function App() {
+    const [cart, updateCart] = useState([])
+
 	return (
 		<div>
 			{/* Utilisation de la prop technique children pour définir Banner */}
 			<Banner>
-				<div>
 				<img src={logo} alt='La maison jungle' className='lmj-logo' />
 				<h1 className='lmj-title'>La maison jungle</h1>
-				<Recommendation/>
-				</div>
 			</Banner>
-
-
+			<Recommendation/>
+				
+			<div className='lmj-layout-inner'>
+                <Cart cart={cart} updateCart={updateCart} />
+                <ShoppingList cart={cart} updateCart={updateCart} />
+            </div>
+			
 			<QuestionForm/>
 	
-			<Cart />
-			<ShoppingList />
 			<Footer />
 		</div>
 	)
