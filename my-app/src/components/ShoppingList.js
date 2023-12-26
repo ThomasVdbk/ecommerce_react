@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { plantList } from '../datas/plantList'
 import PlantItem from './PlantItem'
 import '../styles/ShoppingList.css'
 
 function ShoppingList({ cart, updateCart }) {
+	const [activeCategory, setActiveCategory] = useState('')
 	const categories = plantList.reduce(
 		(acc, plant) =>
 			acc.includes(plant.category) ? acc : acc.concat(plant.category),
@@ -10,11 +12,17 @@ function ShoppingList({ cart, updateCart }) {
 	)
 
 	function addToCart(name, price) {
-		const items = Object.keys(cart)
-		if (items.includes(name)) {
-			updateCart({ ...cart, [name]: { amount: cart[name].amount + 1, price } })
+		const currentPlantSaved = cart.find((plant) => plant.name === name)
+		if (currentPlantSaved) {
+			const cartFilteredCurrentPlant = cart.filter(
+				(plant) => plant.name !== name
+			)
+			updateCart([
+				...cartFilteredCurrentPlant,
+				{ name, price, amount: currentPlantSaved.amount + 1 }
+			])
 		} else {
-			updateCart({ ...cart, [name]: { amount: 1, price } })
+			updateCart([...cart, { name, price, amount: 1 }])
 		}
 	}
 
