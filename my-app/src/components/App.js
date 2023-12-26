@@ -4,6 +4,7 @@ import Cart from './Cart'
 import ShoppingList from './ShoppingList'
 import Recommendation from './Recommendation'
 import QuestionForm from './QuestionForm'
+import Footer from './Footer'
 
 function App() {
 	return (
@@ -22,6 +23,7 @@ function App() {
 	
 			<Cart />
 			<ShoppingList />
+			<Footer />
 		</div>
 	)
 }
