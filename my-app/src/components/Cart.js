@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import '../styles/Cart.css'
-import Categories from './Categories'
 
 function Cart({ cart, updateCart }) {
 	// useState pour afficher ou cacher le panier
 	const [isOpen, setIsOpen] = useState(true)
+
 	// Calcul total panier pour chaque element ajouter au tableau cart (init dans App)
 	const total = cart.reduce(
 		(acc, plantType) => acc + plantType.amount * plantType.price, 0 )
@@ -12,6 +12,7 @@ function Cart({ cart, updateCart }) {
 		useEffect(() => {
 			document.title = `LMJ: ${total}€ d'achats`
 		}, [total])
+
 
     return isOpen ? (
         <div className='lmj-cart'>
