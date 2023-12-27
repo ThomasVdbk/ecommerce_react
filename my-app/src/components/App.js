@@ -5,12 +5,13 @@ import ShoppingList from './ShoppingList'
 import Recommendation from './Recommendation'
 import QuestionForm from './QuestionForm'
 import Footer from './Footer'
+import Categories from './Categories';
 import '../styles/App.css'
 
 import { useState } from 'react'
 
 function App() {
-    const [cart, updateCart] = useState([])
+	    const [cart, updateCart] = useState([])
 
 	return (
 		<div>
