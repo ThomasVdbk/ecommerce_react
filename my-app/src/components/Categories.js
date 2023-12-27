@@ -1,5 +1,4 @@
 import '../styles/Caregories.css'
-import Cart from './Cart'
 
 function Categories({ setActiveCategory, categories, activeCategory }) {
 	return (
